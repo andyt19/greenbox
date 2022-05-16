@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Editing Product {{product.id}} - greenbox {% endblock %}
+
+{% block content %}
+	<form method="POST" action="/update/product/{{product.id}}">
+        {% csrf_token %}
+        <div>
+            <br>
+                <h2>Update Product {{product.id}}</h2>
+                <div>
+                    <label for="name">Product Name:</label><br>
+                    <input type="text" id ="name" name="name" value="{{product.name}}"/>
+                </div><br>
+                <div>
+                    <label for="desc">Product Description:</label><br>
+                    <input type="text" id="desc" name="desc" value="{{product.desc}}"/>
+                </div><br>
+                <div>
+                    <label for="stock">Stock:</label><br>
+                    <input type="number" id="stock" name="stock" value="{{product.stock}}"/>
+                </div><br>
+                <div>
+                    <label for="warehouseid">Warehouse:</label><br>
+                    <select id="warehouseid" name="warehouseid">
+                        {% for warehouse in warehouses %}
+                            <option value="{{ warehouse.id }}" 
+                            {% if product.warehouseid == warehouse %} selected {% endif %}>Warehouse {{ warehouse.id }} ({{ warehouse.city}}, {{ warehouse.province }})</option>
+                        {% endfor %}
+                    </select>
+                </div><br><br>
+
+                <button type="submit">Submit</button>
+        </div>
+    </form>
+    <br>
+    <button><a href="/viewall">Return</a></button>
+{% endblock %}

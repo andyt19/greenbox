@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Warehouse - greenbox {% endblock %}
+
+{% block content %}
+	<form method="POST" action="/addwarehouse">
+        {% csrf_token %}
+        <div>
+            <p>
+                <h2>Enter Warehouse details</h2>
+            </p>
+            <div>
+                <label for="address">Address:</label><br>
+                <input type="text" id ="address" name="address" value="{{warehouse.address}}"/>
+            </div><br>
+
+            <div>
+                <label for="postal">Postal Code:</label><br>
+                <input type="text" id="postal" name="postal" value="{{warehouse.postal}}"/>
+            </div><br>
+
+            <div>
+                <label for="city">City:</label><br>
+                <input type="text" id="city" name="city" value="{{warehouse.city}}"/>
+            </div><br>
+
+            <div>
+                <label for="province">Province:</label><br>
+                <input type="text" id="province" name="province" value="{{warehouse.province}}"/>
+            </div><br>
+
+            <button type="submit">Submit</button><br><br>
+            <button><a href="/viewall">Return</a></button>
+        </div>
+    </form>
+{% endblock %}

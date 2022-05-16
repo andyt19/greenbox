@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Product - greenbox {% endblock %}
+
+{% block content %}
+	<form method="POST" action="/addproduct">
+        {% csrf_token %}
+        <div>
+            <p>
+                <h2>Enter product details</h2>
+            </p>
+            <div>
+                <label for="name">Product Name:</label><br>
+                <input type="text" id ="name" name="name" value="{{ product.name }}"/>
+            </div><br>
+
+            <div>
+                <label for="desc">Product Description:</label><br>
+                <input type="text" id="desc" name="desc" size="50" value="{{ product.desc }}"/>
+            </div><br>
+
+            <div>
+                <label for="stock">Stock:</label><br>
+                <input type="number" id="stock" name="stock" value="{{ product.stock }}"/>
+            </div><br>
+
+            <div>
+                <label for="warehouseid">Warehouse:</label><br>
+                <select name="warehouseid" id="warehouseid" value="{{ product.warehouseid }}">
+                    {% for warehouse in warehouses %}
+                        <option value="{{ warehouse.id }}">Warehouse {{ warehouse.id }} ({{ warehouse.city }}, {{ warehouse.province }})</option>
+                    {% endfor %}
+                </select>
+            </div><br>
+
+            <button type="submit">Submit</button><br><br>
+            <button><a href="/viewall">Return</a></button>
+        </div>
+    </form>
+{% endblock %}

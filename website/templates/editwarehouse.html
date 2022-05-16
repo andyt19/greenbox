@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Editing Warehouse {{warehouse.id}} - greenbox {% endblock %}
+
+{% block content %}
+	<form method="POST" action="/update/warehouse/{{warehouse.id}}">
+        {% csrf_token %}
+        <div>
+            <br>
+                <h2>Update Warehouse {{warehouse.id}}</h2>
+                <div>
+                    <label for="address">Address:</label><br>
+                    <input type="text" id ="address" name="address" value="{{warehouse.address}}"/>
+                </div><br>
+                <div>
+                    <label for="postal">Postal Code:</label><br>
+                    <input type="text" id="postal" name="postal" value="{{warehouse.postal}}"/>
+                </div><br>
+                <div>
+                    <label for="city">City:</label><br>
+                    <input type="text" id="city" name="city" value="{{warehouse.city}}"/>
+                </div><br>
+                <div>
+                    <label for="province">Province:</label><br>
+                    <input type="text" id="province" name="province" value="{{ warehouse.province }}">
+                </div><br><br>
+
+                <button type="submit">Submit</button>
+        </div>
+    </form>
+    <br>
+    <button><a href="/viewall">Return</a></button>
+{% endblock %}

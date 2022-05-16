@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %} All products - greenbox {% endblock %}
+
+{% block content %}
+  <h2>Manage Warehouses</h2>
+  <button><a href="/addwarehouse">Add new warehouse</a></button>
+  <table cellspacing="10">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Address</th>
+            <th>Postal Code</th>
+            <th>City</th>
+            <th>Province</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for warehouse in warehouses %}
+        <tr>
+            <td>{{ warehouse.id }}</td>
+            <td>{{ warehouse.address }}</td>
+            <td>{{ warehouse.postal }}</td>
+            <td>{{ warehouse.city }}</td>
+            <td>{{ warehouse.province }}</td>
+            <td>
+              <button><a href="/edit/warehouse/{{ warehouse.id }}">Edit</a></button>
+              <button><a href="/delete/warehouse/{{ warehouse.id }}">Delete</a></button>
+          </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table> <br>
+
+  <h2>Manage Products</h2>
+  <button><a href="/addproduct">Add new product</a></button>
+	<table cellspacing="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Stock</th>
+                <th>Warehouse ID</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.stock }}</td>
+                <td>{{ product.warehouseid }}</td>
+                <td>{{ product.desc }}</td>
+                <td>
+                    <button><a href="/edit/product/{{ product.id }}">Edit</a></button>
+                    <button><a href="/delete/product/{{ product.id }}">Delete</a></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table><br>
+    <br>
+{% endblock %}
