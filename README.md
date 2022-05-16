@@ -3,8 +3,6 @@
 An inventory management web app developed in Python using Django and SQLite. 
 But since I used Django, PostgreSQL, MariaDB, MySQL, and Oracle can be used as well.
 
-NOTE: When running the app, remember that you must have at least one warehouse before adding new products.
-
 ## Run on Replit
 Navigate to https://replit.com/@andyt19/greenbox#.replit and click the run button
 
@@ -43,6 +41,8 @@ Add new warehouse - Takes user to form for adding a warehouse to the Warehouses 
 Add new product - Takes user to form for adding a product to the Products database. Product name, stock, warehouse ID (select from existing warehouses), and description fields are required.
 
 Upon deleting a warehouse, the products associated with that warehouse will also be deleted.
+
+When running the app, remember that you must have at least one warehouse before adding new products.
 
 ## Demo
 
