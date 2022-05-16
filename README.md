@@ -37,7 +37,7 @@ Start the server
 
 Open a web browser and type 127.0.0.1:8000 into the web address
 
-# Usage
+## Usage
 Add new warehouse - Takes user to form for adding a warehouse to the Warehouses database. Address, postal code, city, and province fields are required.
 
 Add new product - Takes user to form for adding a product to the Products database. Product name, stock, warehouse ID (select from existing warehouses), and description fields are required.
