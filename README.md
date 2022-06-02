@@ -4,7 +4,7 @@ An inventory management web app developed in Python using Django and SQLite.
 But since I used Django, PostgreSQL, MariaDB, MySQL, and Oracle can be used as well.
 
 ## Run on Replit
-Navigate to https://replit.com/@andyt19/greenbox#.replit and click the run button
+Navigate to https://replit.com/@andyt19/greenbox#.replit and click the run button (might take a minute or two to get set up)
 
 ## Run Locally
 Install the latest version of Python https://www.python.org/
